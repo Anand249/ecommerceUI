@@ -9,12 +9,12 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
+  public isPWDActive = true;
 
   form: FormGroup;
   UserLogin(form) {
     console.log(form.value);
-
-  }
+  };
   constructor() { }
 
   ngOnInit() {
@@ -28,7 +28,8 @@ export class UserLoginComponent implements OnInit {
 
     });
   }
-  // UserLogin() {
-   //  this.router.navigate(['/loggedin']);
-  // }
+  toggle() {
+    this.isPWDActive !== this.isPWDActive;
+    console.log(this.isPWDActive);
+  }
 }

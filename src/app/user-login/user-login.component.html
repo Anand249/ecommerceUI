@@ -10,45 +10,42 @@
           </div>
           <form novalidate [formGroup]="form" (ngSubmit)="UserLogin(form)" action="/" name="ciaSignOn" id="FORM_8">
             <div class="form-group" id="DIV_9">
-              <label for="fld-e" id="LABEL_10">
+              <label id="LABEL_10">
                 E-Mail Address
               </label>
-              <input type="email" class="form-control" formControlName="email" name="email_XkebW4jM2EbzvK8v%2BtUmxV2J9Tj3CvhqSmeuymHCKva%2BNZODTuaicDr6w0DrRunx" id="INPUT_11" />
+              <input type="email" class="form-control" formControlName="email" name="email" id="INPUT_11" />
               <div class="alert alert-danger" *ngIf="form.get('email').touched && !form.get('email').valid">
                 <div *ngIf="form.get('email').hasError('required')">
                   email is required
                 </div>
-                <div *ngIf="form.get('email') != form.get('email')">
+                <div *ngIf="form.get('email').hasError('pattern')">
                   Enter email in format ex: xyz@mail.com
                 </div>
               </div>
             </div>
             <div class="form-group" id="DIV_12">
-              <label for="fld-p1" id="LABEL_13">
+              <label id="LABEL_13">
                 Password
               </label>
               <div id="DIV_14">
                 <a href="#forgotPassword" id="A_15">Forgot Password?</a>
               </div>
               <div id="DIV_16">
-                <input type="password" class="form-control" formControlName="psw" name="password_6GuNuZ0lfTIG4OxnULfT9%2FJXRsk8WcLw2%2BHXYdjSW23d2Fnm3Ny%2BPKYRh53EyEU5" id="INPUT_17" />
+                <input [type]="isPWDActive ? 'password' : 'text'" class="form-control" formControlName="psw" name="password" id="INPUT_17" />
                 <div class="alert alert-danger" *ngIf="form.get('psw').touched && form.get('psw').invalid">
                   <div *ngIf="form.get('psw').hasError('required')">
                     password is required
                   </div>
                   <div *ngIf="form.get('psw').hasError('pattern')">
-                    Password must contain a <li>uppercase letter</li>
-                    <li> diigts</li>
-                    <li> lowercaseletter</li>
-                    <li>Atleast 8 chars</li>
+                    Password must contain an uppercase letter, a number, a special character, atleast 8 characters
                   </div>
                 </div>
-                <button type="submit" name="button" id="BUTTON_18">
-                  Show
+                <button name="button" id="BUTTON_18" (click)="toggle()">
+                  <span *ngIf="isPWDActive">Show</span>
+                  <span *ngIf="!isPWDActive">Hide</span>
                 </button>
               </div>
             </div>
-            <input type="hidden" name="Salmon" value="FA7F2" id="INPUT_19" />
             <button type="submit" id="BUTTON_20">
               <span id="SPAN_21"></span><span id="SPAN_22">Sign In</span>
             </button><span id="SPAN_23">By continuing you agree to our <a href="#" id="A_24">Terms and Conditions</a> and the <a href="#" id="A_25">My EgiantsEcommerceng<span id="SPAN_26">®</span> Program Terms.</a></span><span id="SPAN_27">Forgot your password? <a href="#forgotPassword" id="A_28">Reset it</a></span>
@@ -58,19 +55,12 @@
           <div id="DIV_41">
             <div id="DIV_42">
               <div id="DIV_43">
-                Don't have an account? <a href="#" id="A_44">Create one</a>
+                Don't have an account? <a href="#" id="A_44">Create One</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <script type="text/javascript" id="SCRIPT_45">if (window.ctc) {window.ctc("03e6b3a528494f95a0c67f487e53d24a");}
-    </script>
-    <div id="DIV_46">
-      <noscript id="NOSCRIPT_48">
-        &lt;iframe style="width: 100px; height: 100px; border: 0; position: absolute; top: -5000px;" src="https://tmx.bestbuy.com/tags?org_id=ummqowa2&amp;session_id=03e6b3a528494f95a0c67f487e53d24a"&gt;&lt;/iframe&gt;
-      </noscript>
     </div>
   </div>
   <div id="DIV_49">
