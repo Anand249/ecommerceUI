@@ -5,13 +5,20 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { HomeComponent } from './home/home.component';
+import { HistoryComponent } from './history/history.component';
+import {routing} from './app.routing';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    HomeComponent,
+    HistoryComponent
   ],
   imports: [
+    routing,
     BrowserModule,
     FormsModule,
     HttpModule
