@@ -1,6 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../user';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
+function passwordConfirming(c: AbstractControl): any {
+  if (!c.parent || !c) {
+    return;
+  }
+  const pwd = c.parent.get('f_password');
+  const cpwd = c.parent.get('f_passwordCheck');
+
+  if (!pwd || !cpwd) {
+    return;
+  }
+  if (pwd.value !== cpwd.value) {
+    return { invalid: true };
+
+  }
+}
 
 @Component({
   selector: 'app-create-user',
@@ -27,16 +43,18 @@ export class CreateUserComponent implements OnInit {
       'f_firstName': [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(10)])],
       'f_lastName': [null, Validators.required],
       'f_password': [null, Validators.compose([Validators.required, Validators.minLength(5)])],
-      'f_passwordCheck': [null, Validators.compose([Validators.required, Validators.minLength(5)])],
+      'f_passwordCheck': [null, passwordConfirming],
       'validateCheckbox': [null],
-      'f_number': [null, Validators.required]
+      'f_number': [null, Validators.compose([Validators.required, Validators.pattern('[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')])]
     });
   }
 
+  get cpwd() {
+    return this.rForm.get('f_passwordCheck');
+  }
   ngOnInit() {
 
   }
-
   newFunction() {
     if (this.checkboxValue) {
       this.isActive = true;
