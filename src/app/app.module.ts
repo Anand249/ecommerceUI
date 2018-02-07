@@ -8,6 +8,8 @@ import {CreateUserComponent} from './create-user/create-user.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {HomeComponent} from './home/home.component';
+import {RouterModule} from '@angular/router';
+import {routing} from './app.routing';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,14 @@ import {HomeComponent} from './home/home.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent
-
   ],
   imports: [
+    routing,
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
